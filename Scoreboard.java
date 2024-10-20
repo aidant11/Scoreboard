@@ -35,17 +35,3 @@ public class Scoreboard {
 }
 
 
-public void recordPlay(int score) {
-    if (score > 0) {  // Check if points are scored
-        if (activeTeam.equals(teamOne)) {
-            teamOneScore += score;  // Update team one score
-        } else if (activeTeam.equals(teamTwo)) {
-            teamTwoScore += score;  // Update team two score
-        }
-        // The active team remains the same if points are scored
-    } else if (score == 0) {  // If no points are scored
-        if (activeTeam.equals(teamOne)) {
-            activeTeam = teamTwo;  // Switch to team two
-        } else {
-            activeTeam = teamOne;  // Switch to team one
-        }
