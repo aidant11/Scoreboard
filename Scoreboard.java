@@ -8,30 +8,29 @@ public class Scoreboard {
     public Scoreboard(String one, String two) {
         teamOne = one;
         teamTwo = two;
-        activeTeam = teamOne;
-    }
-
-    public void recordPlay(int score) {
-        if (score>0) {
-            if (teamOne.equals(activeTeam)) {
-            teamOneScore += score;}
-        else if (teamTwo.equals(activeTeam)) {
-            teamTwoScore += score;
-            }
-        }
-            
-        
-        else if (score == 0) {
-            if (activeTeam.equals(teamOne))
-                activeTeam = teamTwo;
-            else (activeTeam.equals(teamTwo))
-                activeTeam = teamOne;
-        }
+        teamOneScore = 0;
+        teamTwoScore = 0;
+        activeTeam = teamOne; 
     }
 
     public String getScore() {
         return teamOneScore + "-" + teamTwoScore + "-" + activeTeam;
     }
+
+    public void recordPlay(int score) {
+        if (score > 0) {
+            if (teamOne.equals(activeTeam)) {
+                teamOneScore += score;
+            } else {
+                teamTwoScore += score;
+            }
+        } else if (score == 0) {
+            // Switch the active team
+            if (teamOne.equals(activeTeam)) {
+                activeTeam = teamTwo;
+            } else {
+                activeTeam = teamOne;
+            }
+        }
+    }
 }
-
-
